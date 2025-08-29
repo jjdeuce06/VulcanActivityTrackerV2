@@ -70,15 +70,15 @@ class Jog:
 
             # Right side login container
             self.login_frame = Frame(self.main_container, bg='white', 
-                                   highlightbackground=self.PRIMARY_COLOR,
-                                   highlightthickness=2)
+                                highlightbackground=self.PRIMARY_COLOR,
+                                highlightthickness=2)
             self.login_frame.pack(side='right', fill='both', expand=True, padx=(0, 0))
             self.login_frame.pack_propagate(False)
 
             # Heading with better styling
             self.heading = Label(self.login_frame, text='Sign In', 
-                               fg=self.PRIMARY_COLOR, bg='white',
-                               font=('Helvetica', 24, 'bold'))
+                            fg=self.PRIMARY_COLOR, bg='white',
+                            font=('Helvetica', 24, 'bold'))
             self.heading.pack(pady=(40, 30))
 
             # Username input with better styling
