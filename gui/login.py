@@ -3,15 +3,16 @@ from tkinter import *
 from tkinter import messagebox, filedialog, scrolledtext
 from database.db import get_user_info, insert_user
 from .portal import UserPortal
+import os
+from PIL import Image, ImageTk
 
 class LoginWindow:
     def __init__(self, root):
         self.root = root
-        self.login = tk.Tk()
-        self.login.title("Vulcan Activity Tracker")
-        self.login.geometry("1000x600+200+100")
-        self.login.configure(bg='#f0f2f5')
-        self.login.resizable(False, False)
+        self.root.title("Vulcan Activity Tracker")
+        self.root.geometry("1000x600+200+100")
+        self.root.configure(bg='#f0f2f5')
+        self.root.resizable(False, False)
         self.img = None
 
         # Define modern colors
@@ -24,23 +25,27 @@ class LoginWindow:
         self.build_login()
 
     def build_login(self):
+            # print(os.path.exists('imgs/cu.png'))
+            # img = Image.open("imgs/cu.png")
+            # print(img.format, img.size, img.mode)
         # Create main container
-            self.main_container = Frame(self.login, bg=self.BG_COLOR)
+            self.main_container = Frame(self.root, bg=self.BG_COLOR)
             self.main_container.pack(fill='both', expand=True, padx=20, pady=20)
 
             # Left side image container
             self.image_container = Frame(self.main_container, bg=self.BG_COLOR)
             self.image_container.pack(side='left', fill='both', expand=True, padx=(0, 20))
-
-            # # Load Image with better styling
-            # self.img = PhotoImage(file='imgs/cu.png')
-            # Label(self.image_container, image=self.img, bg=self.BG_COLOR).pack(pady=50)
             
             # Title with better styling
             self.titlelabel = Label(self.image_container, text='Activity Tracker', 
                                 fg=self.PRIMARY_COLOR, bg=self.BG_COLOR,
                                 font=('Helvetica', 28, 'bold'))
             self.titlelabel.pack(pady=(0, 20))
+            
+            # Load Image with better styling
+            self.img = PhotoImage(file='imgs/cu.png')
+            Label(self.image_container, image=self.img, bg=self.BG_COLOR).pack(pady=50)
+
 
             # Right side login container
             self.login_frame = Frame(self.main_container, bg='white', 
@@ -89,10 +94,10 @@ class LoginWindow:
                  fg=self.TEXT_COLOR, bg='white',
                  font=('Helvetica', 10)).pack(side='left', padx=(0, 10))
 
-            # Button(signup_frame, text='Sign Up', 
-            #       bg=self.ACCENT_COLOR, fg='white',
-            #       border=0, font=('Helvetica', 10, 'bold'),
-            #       command=self.signup).pack(side='right')
+            Button(signup_frame, text='Sign Up', 
+                bg=self.SECONDARY_COLOR, fg='white',
+                border=0, font=('Helvetica', 10, 'bold'),
+                command=self.signup).pack(side='right')
 
     #---------USER-----------------#
     def on_enter_user(self, e):
@@ -148,7 +153,7 @@ class LoginWindow:
         Button(signup_window, text="Confirm", command=confirm, bg=self.ACCENT_COLOR, fg="white").pack(pady=10)
 
     def open_portal(self, username):
-        UserPortal(self.login, username)
+        UserPortal(self.root, username)
 
     
 

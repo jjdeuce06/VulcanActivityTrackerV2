@@ -527,10 +527,10 @@ class Jog:
 
             # Modern heading
             heading = Label(addActivity_frame,
-                          text='Add Activity',
-                          fg=self.PRIMARY_COLOR,
-                          bg=self.BG_COLOR,
-                          font=('Helvetica', 28, 'bold'))
+                        text='Add Activity',
+                        fg=self.PRIMARY_COLOR,
+                        bg=self.BG_COLOR,
+                        font=('Helvetica', 28, 'bold'))
             heading.pack(pady=20)
 
             # Main container with two columns
@@ -539,16 +539,16 @@ class Jog:
 
             # Left side for inputs
             input_frame = Frame(main_container,
-                              bg='white',
-                              highlightbackground=self.PRIMARY_COLOR,
-                              highlightthickness=1)
+                            bg='white',
+                            highlightbackground=self.PRIMARY_COLOR,
+                            highlightthickness=1)
             input_frame.pack(side='left', fill='both', expand=True, padx=(0, 10))
 
             # Right side for calendar
             calendar_frame = Frame(main_container,
-                                 bg='white',
-                                 highlightbackground=self.PRIMARY_COLOR,
-                                 highlightthickness=1)
+                                bg='white',
+                                highlightbackground=self.PRIMARY_COLOR,
+                                highlightthickness=1)
             calendar_frame.pack(side='right', fill='both', expand=True, padx=(10, 0))
 
             # Calendar widget for activity date
